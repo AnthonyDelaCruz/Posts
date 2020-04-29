@@ -3,10 +3,7 @@ import Layout from "../components/Layout";
 import CardItem from "../components/Card";
 import posts from "../data/posts.json";
 
-export default function Home({ sample }) {
-  React.useEffect(() => {
-    console.log("posrResponse", posts);
-  }, []);
+export default function Home({ posts }) {
   return (
     <Layout>
       <Head>
@@ -28,4 +25,13 @@ export default function Home({ sample }) {
       </main>
     </Layout>
   );
+}
+
+// will imititate fetching data
+export async function getStaticProps() {
+  return {
+    props: {
+      posts,
+    },
+  };
 }
